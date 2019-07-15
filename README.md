@@ -1,5 +1,5 @@
 # ChromeBot
-Slash commands built for Chrome! It's the chrome powerup you always wanted but never had. 
+Slash commands built for Chrome! It's the chrome powerup you deserve.
 
 Type `/ <command> <keyword>` to get started! 
 
