@@ -5,10 +5,15 @@ Type `/ <command> <keyword>` to get started!
 
 ** Quick Usage:** 
 `/ e github` extracts all github tabs to a new page
+
 `/ s` brings all tabs to your current window
+
 `/ b youtube 120` bans youtube for 120 minutes
+
 `/ m featherx` merges all featherx tabs to the right of your window
+
 `/ c reddit` closes all reddit tabs
+
 `/ a gmail` switches to gmail tab
 
 Detailed instructions below
