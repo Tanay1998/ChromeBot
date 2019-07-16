@@ -3,7 +3,15 @@ Slash commands built for Chrome! It's the chrome powerup you deserve.
 
 Type `/ <command> <keyword>` to get started! 
 
-**Example Usage:** `/ extract github` will moves all your github tags to a separate window. 
+** Quick Usage:** 
+`/ e github` extracts all github tabs to a new page
+`/ s` brings all tabs to your current window
+`/ b youtube 120` bans youtube for 120 minutes
+`/ m featherx` merges all featherx tabs to the right of your window
+`/ c reddit` closes all reddit tabs
+`/ a gmail` switches to gmail tab
+
+Detailed instructions below
 
 More coming soon! 
 
@@ -19,15 +27,21 @@ Let's see if you can do this under 30 seconds.
 ## Usage Instructions 
 **Note:** `<keyword>` searches for matches with the tab title. It can also be one of the two groups `allsocialmedia` and `allentertainment`. 
 
-### Ban: `(b)an <keyword>` 
+### Ban: `(b)an <keyword> <optional: time>` 
 Will ban all websites that have the keyword for one hour.
 
 **Example:** `/ ban allsocialmedia` will restrict access to social media sites.  
+**Example:** `/ ban allsocialmedia 120` will restrict access to social media sites for 120 minutes.  
 
 ### Close: `(c)lose <keyword>` 
 Will move all matching tabs together in their current window. 
 
 **Example:** `/ close trump` will close all tabs with 'trump' in their title.
+
+### Squeeze: `(s)queeze <keyword>` 
+Will get all tabs together in their current window. 
+
+**Example:** `/ squeeze` will bring everything to one window.
 
 ### Extract: `(e)xtract <keyword>` 
 Like merge, but will move all matching tabs to a new window.
