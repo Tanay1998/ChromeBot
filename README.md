@@ -3,7 +3,7 @@ Slash commands built for Chrome! It's the chrome powerup you deserve.
 
 Type `/ <command> <keyword>` to get started! 
 
-** Quick Usage:** 
+**Quick Usage:** 
 `/ e github` extracts all github tabs to a new page
 
 `/ s` brings all tabs to your current window
