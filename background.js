@@ -36,11 +36,14 @@ chrome.omnibox.onInputEntered.addListener(
     }
 });
 
+
+
 /* 
 
     RETRIEVE TABS FROM QUERY
 
 */
+
 
 groupMaps = {
     'allsocialmedia': ['facebook.com', 'instagram.com', 'twitter.com', 'messenger.com',
@@ -161,11 +164,14 @@ function close(query) {
     });
 }
 
+
+
 /* 
 
     LISTENERS FOR BANNED SITES
 
 */
+
 
 chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({ banUntil: {} });
@@ -185,7 +191,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
                 if (url.includes(token)) {
                     // This token was banned at some point. Is it still banned? 
                     if (Date.now() < data.banUntil[token]) {
-                        chrome.tabs.update(tabId, {url: rickRolledUrl })
+                        chrome.tabs.update(tabId, {url: redirUrl })
                     }
                 }
             }
@@ -193,12 +199,13 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     }
 });
 
+
+
 /* 
 
     SUGGESTIONS FOR AUTOCOMPLETE
 
 */
-
 
 
 suggestionsList = [
