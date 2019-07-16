@@ -1,41 +1,68 @@
+paramCommands = {
+    merge: merge, m: merge,
+    close: close, c: close,
+    ban: ban, b: ban,
+    extract: extract, e: extract,
+    activate: activate, a: activate,
+    find: find, f: find,
+}
+
+soloCommands = {
+    condense: condense, squeeze: condense, s: condense,
+}
+
+
 chrome.omnibox.onInputEntered.addListener(
     function(text) {
         tokens = text.toLowerCase().split(" ")
+        if (tokens.length == 0) {
+            return;
+        } 
+
         cmd = tokens[0]
-        query = tokens.slice(1).join(" ")
-        if (tokens.length < 2) {
-            alert ("Sorry I don't understand.")
+
+        // standalone commands 
+        if (tokens.length == 1) {
+            for (c in soloCommands) {
+                if (c == cmd) {
+                    soloCommands[c]();
+                    break;
+                }
+            }
         }
-        switch (cmd) {
-            case "merge": 
-            case "m":
-                merge(query);
-                break;
-            case "close":
-            case "c": 
-                close(query);
-                break;
-            case "ban":
-            case "b": 
-                ban(query);
-                break;
-            case "extract":
-            case "e": 
-                extract(query);
-                break;
-            case "find":
-            case "f": 
-                find(query);
-                break;
-            case "activate":
-            case "a": 
-                activate(query);
-                break;
-            default:
-                console.log("wtf is this: " + text);
-    }
+
+        // regex matches
+        if (banWithTimeQuery(text)) {
+            return;
+        }
+
+        // commands with only parameters
+        query = tokens.slice(1).join(" ")
+        for (c in paramCommands) {
+            if (c == cmd) {
+                paramCommands[c](query)
+            }
+        }
 });
 
+function banWithTimeQuery(text) {
+    var minRegexes = new RegExp('ban (.*) (\\d+)\\s?m?', 'i'),
+    var hourRegex = new RegExp('ban (.*) (\\d+)\\s?h', 'i'),
+
+    m = text.match(hourRegex);
+    if (m) {
+        ban(matches[1], 60 * parseInt(matches[2]))
+        return true;
+    }
+
+    m = text.match(minRegex);
+    if (m) {
+        ban(matches[1], parseInt(matches[2]))
+        return true;
+    }
+
+    return false;
+}
 
 
 /* 
