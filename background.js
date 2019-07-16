@@ -46,8 +46,8 @@ chrome.omnibox.onInputEntered.addListener(
 });
 
 function banWithTimeQuery(text) {
-    var minRegexes = new RegExp('ban (.*) (\\d+)\\s?m?', 'i'),
-    var hourRegex = new RegExp('ban (.*) (\\d+)\\s?h', 'i'),
+    var minRegex = new RegExp('ban (.*) (\\d+)\\s?m?', 'i');
+    var hourRegex = new RegExp('ban (.*) (\\d+)\\s?h', 'i');
 
     m = text.match(hourRegex);
     if (m) {
@@ -191,6 +191,14 @@ function close(query) {
     });
 }
 
+function condense() {
+    chrome.tabs.query(queryInfo, function(tabs) {
+        windowId = tabs[0].windowId;
+        tabIds = tabs.map(tab => tab.id);
+        moveProperties = { windowId: windowId, index: -1 }
+        chrome.tabs.move(tabIds.slice(1), moveProperties);
+    });
+}
 
 
 /* 
@@ -236,11 +244,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 
 suggestionsList = [
-    {content: "merge <keyword>", description: "Merge: Brings tabs with the keyword together in their current window"},
+    {content: "extract <keyword>", description: "Extract: Extracts tabs with the keyword in a current window"},
     {content: "close <keyword>", description: "Close: Closes all tabs with the keyword"},
     {content: "ban <keyword>", description: "Ban: Bans website for 1 hour"},
+    {content: "condense", description: "Condense: Gets all tabs to the same window"},
     {content: "activate <keyword>", description: "Activate: Brings tab with keyword into focus"},
-    {content: "extract <keyword>", description: "Extract: Extracts tabs with the keyword in a current window"},
+    {content: "merge <keyword>", description: "Merge: Brings tabs with the keyword together in their current window"},
     {content: "find <keyword>", description: "Find: Finds number of tabs with the keyword"},
 ]
 
