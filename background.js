@@ -51,13 +51,13 @@ function banWithTimeQuery(text) {
 
     m = text.match(hourRegex);
     if (m) {
-        ban(matches[1], 60 * parseInt(matches[2]))
+        ban(m[1], 60 * parseInt(m[2]))
         return true;
     }
 
     m = text.match(minRegex);
     if (m) {
-        ban(matches[1], parseInt(matches[2]))
+        ban(m[1], parseInt(m[2]))
         return true;
     }
 
