@@ -2,7 +2,7 @@
     "name": "ChromeBot",
     "version": "1.0",
     "description": "Slash commands for Google Chrome. Powerup your browsing experience",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "storage"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
