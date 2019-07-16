@@ -17,12 +17,12 @@ Let's see if you can do this under 30 seconds.
 
 
 ## Usage Instructions 
-**Note:** `<keyword>` searches for matches with the tab title. 
+**Note:** `<keyword>` searches for matches with the tab title. It can also be one of the two groups `allsocialmedia` and `allentertainment`. 
 
-### Merge: `merge <keyword>` 
-Will move all matching tabs together in their current window. 
+### Ban: `ban <keyword>` 
+Will ban all websites that have the keyword for one hour.
 
-**Example:** `/ merge D2C` will move all tabs with D2C towards the right of the current window. 
+**Example:** `/ ban allsocialmedia` will restrict access to social media sites.  
 
 ### Close: `close <keyword>` 
 Will move all matching tabs together in their current window. 
@@ -33,6 +33,11 @@ Will move all matching tabs together in their current window.
 Like merge, but will move all matching tabs to a new window.
 
 **Example:** `/ extract featherx` will move all tabs with 'featherx' to another window.
+
+### Merge: `merge <keyword>` 
+Will move all matching tabs together in their current window. 
+
+**Example:** `/ merge D2C` will move all tabs with D2C towards the right of the current window. 
 
 ### Activate: `activate <keyword>` 
 Will focus on the tab searched for among all your windows.
