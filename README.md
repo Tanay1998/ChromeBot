@@ -4,42 +4,35 @@ Slash commands built for Chrome! It's the chrome powerup you deserve.
 Type `/ <command> <keyword>` to get started! 
 
 ## Quick Usage: 
-`/ e github` extracts all github tabs to a new window
+`/ extract github` extracts all github tabs to a new window. Shorthand: `/ e github`
 
-`/ s` brings all tabs to your current window
+`/ squeeze` brings all tabs to your current window. Shorthand: `/ s`
 
-`/ b youtube 120` bans youtube for 120 minutes
+`/ ban youtube 120` bans youtube for 120 minutes. Shorthand: `/ b youtube`
 
-`/ m featherx` merges all featherx tabs to the right of your window
+`/ merge featherx` merges all featherx tabs to the right of your window. Shorthand: `/ m featherx`
 
-`/ c reddit` closes all reddit tabs
+`/ close reddit` closes all reddit tabs. Shorthand: `/ c reddit`
 
-`/ a gmail` switches to gmail tab
+`/ activate gmail` switches to gmail tab. Shorthand: `/ a gmail`
 
 Detailed instructions below
 
 More coming soon! 
 
-## Installation Instructions
-Let's see if you can do this under 30 seconds. 
-* Download the repo and unzip it. (or clone if you'd like)
-* Go to `chrome://extensions`
-* Turn on 'Developer Mode' on the top right corner.
-* Click 'Load Unpacked' and select the folder you just downloaded. 
-**Voila!**
-
 
 ## Usage Instructions 
-**Note:** `<keyword>` searches for matches with the tab title. It can also be one of the two groups `allsocialmedia` and `allentertainment`. 
+**Note:** `<keyword>` searches for matches with the tab title. It can also be a group keyword (eg. `allsocialmedia`, `allentertainment`) 
 
 ### Ban: `(b)an <keyword> <optional: time>` 
 Will ban all websites that have the keyword for one hour.
 
 **Example:** `/ ban allsocialmedia` will restrict access to social media sites.  
 **Example:** `/ ban allsocialmedia 120` will restrict access to social media sites for 120 minutes.  
+**Example:** `/ ban allentertainment 5h` will restrict access to entertainment sites for 5 hours.  
 
 ### Close: `(c)lose <keyword>` 
-Will move all matching tabs together in their current window. 
+Will close all matching tabs
 
 **Example:** `/ close trump` will close all tabs with 'trump' in their title.
 
