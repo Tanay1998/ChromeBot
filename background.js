@@ -9,6 +9,7 @@ paramCommands = {
 
 soloCommands = {
     condense: condense, squeeze: condense, s: condense,
+    toggle: toggle, t: toggle,
 }
 
 
@@ -46,8 +47,8 @@ chrome.omnibox.onInputEntered.addListener(
 });
 
 function banWithTimeQuery(text) {
-    var minRegex = new RegExp('ban (.*) (\\d+)\\s?m?', 'i');
-    var hourRegex = new RegExp('ban (.*) (\\d+)\\s?h', 'i');
+    var minRegex = new RegExp('ba?n? (.*) (\\d+)\\s?m?', 'i');
+    var hourRegex = new RegExp('ba?n? (.*) (\\d+)\\s?h', 'i');
 
     m = text.match(hourRegex);
     if (m) {
@@ -146,7 +147,7 @@ function activate(query) {
 
 function find(query) {
     getTabIdsGroup(query).then(function (tabIds) {
-        alert ("Found " + tabIds.length + " tabs.")
+        notify ("Found " + tabIds.length + " tabs.")
     })
 }
 
@@ -186,7 +187,7 @@ function ban(query, minutes=60) {
 function close(query) {
     getTabIdsGroup(query).then(function (tabIds) {
         chrome.tabs.remove(tabIds, function() {
-            alert ("Closed " + tabIds.length + " tabs.")
+            notify ("Closed " + tabIds.length + " tabs.")
         });
     });
 }
@@ -203,13 +204,39 @@ function condense() {
 
 /* 
 
+    SETTINGS
+
+*/
+
+function toggle() {
+    // Only toggles alerts right now
+    chrome.storage.sync.get(null, function(data) {
+        data.settings['showAlerts'] = ! data.settings['showAlerts']
+        chrome.storage.sync.set({ settings: data.settings })
+    })
+}
+
+function notify(text) {
+    chrome.storage.sync.get(null, function(data) {
+        if (data.settings['showAlerts']) {
+            alert(text);
+        }
+    })
+}
+
+/* 
+
     LISTENERS FOR BANNED SITES
 
 */
 
+defaultSettings = {
+    showAlerts: true,
+}
 
 chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({ banUntil: {} });
+
+    chrome.storage.sync.set({ banUntil: {}, settings: defaultSettings });
 });
 
 

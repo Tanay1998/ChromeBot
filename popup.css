@@ -1,0 +1,54 @@
+body { padding: 2em }
+
+@active: #3498DB;
+@inactive: #000;
+
+.toggle-switch {
+  background: #ccc;
+  width: 80px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+  
+  &:after {
+    content: " ";
+    display: block;
+    width: 40px;
+    height: 30px;
+    background-color: @active;
+    border: 3px solid #fff;
+    border-top: 0;
+    border-bottom: 0;
+    margin-left: -3px;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .active & {
+    &:after {
+      margin-left: 40px;
+    }
+  }
+}
+
+.toggle-label {
+  display: inline-block;
+  line-height: 30px;
+}
+
+.toggle-label-off {
+  color: @active;
+}
+
+.active {
+  
+  .toggle-label-off {
+    color: @inactive;
+  }
+
+  .toggle-label-on {
+    color: @active;
+  }
+}
