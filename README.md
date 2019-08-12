@@ -1,6 +1,10 @@
 # ChromeBot
 Slash commands built for Chrome! It's the chrome powerup you deserve.
 
+Get this on the Chrome Extensions Web Store: https://chrome.google.com/webstore/detail/ejdaeiahdnabjhceoobekpekohcileep/publish-accepted
+
+Have a crazy new feature idea? Submit a feature request or make a PR! 
+
 Type `/ <command> <keyword>` to get started! 
 
 ## Quick Usage: 
