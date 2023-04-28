@@ -77,7 +77,9 @@ groupMaps = {
     'allsocialmedia': ['facebook.com', 'instagram.com', 'twitter.com', 'messenger.com',
                     'reddit.com', 'pintrest.com', 'youtube.com', 'youtu.be', 'whatsapp.com'],
     'allentertainment': ['youtube.com', 'netflix.com', 'vimeo.com', 'dailymotion.com',
-                      'hulu.com', 'twitch.com']
+                      'hulu.com', 'twitch.com'],
+    'sahaj': ['facebook.com', 'instagram.com', 'twitter.com', 'messenger.com', 'reddit.com', 'pintrest.com', 
+              'youtube.com', 'youtu.be', 'whatsapp.com', 'slack.com', 'gmail.com'],
 }
 
 function getTabIdsGroup(query) {
